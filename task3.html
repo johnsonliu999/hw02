@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Task3</title>
+    <style media="screen">
+    .first-column {
+      float: left;
+      width: 33.33%;
+    }
+
+    .second-column {
+      float: left;
+      width: 66.67%;
+    }
+
+    .clearfix::after {
+      content: "";
+      clear: both;
+      display: table;
+    }
+    </style>
+    <script type="text/javascript">
+      const genPara = text => {
+        let p = document.createElement('p');
+        p.innerHTML = text;
+        return p;
+      };
+
+      const genSubBot = n => `${n} bottles of beer on the wall, ${n} bottles of beer.
+      Take one down and pass it around, ${n-1} bottles of beer on the wall.`;
+
+      const genLor = (node) => {
+        const lor =
+        [
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam at mi porttitor, lacinia purus ut, ultrices augue. Nam bibendum viverra lacus, nec iaculis turpis cursus a. Etiam auctor condimentum nulla vitae egestas. Morbi eget aliquet tortor. Ut fringilla ultricies facilisis. Nunc at ex vitae tellus ultrices pulvinar non vitae est. Donec imperdiet, lacus sit amet consequat porttitor, nisi tellus volutpat mi, nec tempus nisi ante vitae sapien.",
+          "Proin sodales tortor sed tincidunt auctor. Aliquam finibus vulputate aliquam. Aenean sit amet hendrerit lectus. Etiam lacinia euismod magna, in porta ipsum sodales at. Pellentesque ullamcorper ligula ac metus sollicitudin, semper rhoncus quam hendrerit. Vivamus laoreet ac arcu vel tincidunt. Nullam aliquam quam nec iaculis tincidunt. Maecenas egestas est vitae nisl blandit fermentum.",
+          "Curabitur condimentum tincidunt finibus. Phasellus dictum, ante ultrices tincidunt mattis, dolor velit fermentum augue, tempor molestie sem quam vel dui. Morbi augue magna, mollis sit amet tincidunt ut, commodo ut leo. Maecenas nec nunc volutpat, vestibulum tortor nec, vestibulum purus. Cras ac mi leo. In et massa non risus maximus venenatis. Fusce et facilisis diam. Duis ornare molestie massa a vestibulum. Suspendisse potenti.",
+          "Quisque elementum magna et risus euismod malesuada. Maecenas at efficitur quam. Pellentesque pellentesque ante eu aliquet blandit. Aliquam convallis urna non dolor mattis, viverra maximus lectus vestibulum. Ut in justo at nulla sollicitudin tristique. Duis vel nulla in purus dapibus condimentum. Nullam id faucibus nulla, a aliquam lectus. Sed nec est at eros sodales ornare. Praesent gravida purus et tincidunt pellentesque. Ut varius massa at nibh tincidunt vehicula. Phasellus vitae nisi id eros rhoncus faucibus quis pellentesque ex. Donec tempor nisi imperdiet commodo ultrices. Curabitur at ante sed justo bibendum ultrices maximus nec urna."
+        ];
+
+        node.innerHTML = '';
+
+        lor.forEach(
+          text => node.appendChild(genPara(text)));
+      }
+
+      const genBot = (node) => {
+        const t = [99,98,97,96];
+        node.innerHTML = '';
+        t.forEach(
+          n => node.appendChild(genPara(genSubBot(n)))
+        );
+      }
+
+      const genLast = (node) => {
+        node.innerHTML = '';
+        node.appendChild(genPara("this is the third thing"))
+      }
+
+      const show = i => {
+        let node = document.getElementById('second-column');
+
+        switch (i) {
+          case 0:
+            genLor(node);
+            break;
+          case 1:
+            genBot(node);
+            break;
+          case 2:
+            genLast(node);
+            break;
+          default:
+        }
+      }
+
+
+    </script>
+  </head>
+  <body>
+    <h1>HW03 Task Tree</h1>
+    <div class="clearfix">
+      <div class="first-column" id="first-column">
+        <ul>
+          <li><a href="javascript:show(0)">Lorem Lpsem</a></li>
+          <li><a href="javascript:show(1)">99 Bottle</a></li>
+          <li><a href="javascript:show(2)">Last Thing</a></li>
+        </ul>
+      </div>
+      <div class="second-column" id="second-column">
+      </div>
+    </div>
+
+    </div>
+  </body>
+</html>
